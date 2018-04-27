@@ -11,6 +11,7 @@ Ces scripts ont été largement inspirés par les pages de Mark Kay: http://mark
 
 
 Ordre dans lequel exécuter les scripts python:
+
 1- get_followers_ids : permet de récupérer plusieurs couches des followers (et followers des followers) d'un compte de départ
 2- rename.py : permet de renommer les fichiers pour des raisons de mémoire et de garder les dictionnaires pour passer de leur nouveau nom
               au compte d'origine

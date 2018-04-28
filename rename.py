@@ -1,6 +1,6 @@
 #encoding: utf-8
 
-#amazing idea from Cyril Wheisang.
+#amazing idea from Cyril Weisang-Hoinard.
 #on renomme tous les fichier de 1 a n et on cree des dictionnaires
 #pour passer du nouveau nom a l'id et inversement
 

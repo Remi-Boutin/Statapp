@@ -8,8 +8,9 @@ import yaml
 import time
 t1= time.time()
 
+dossier=[path]
 #But de ce script: creer le csv contenant tous les liens du graph d'un parti ou d'un media
-os.chdir('C:/Users/remib/Documents/ENSAE/2A/Statapp/graph')
+os.chdir(dossier)
 users = defaultdict(lambda: { 'followers': 0 })
 
 dico={1:'CNEWS',2:'Europe1',3:'FN_Officiel',4:'Le_Figaro',5:'lemonde',6:'lesRepublicains',7:'partisocialiste',

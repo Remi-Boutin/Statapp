@@ -19,10 +19,7 @@ Ordre dans lequel exécuter les scripts python:
               
 3- graph.py  :créer pour chaque graphe associé au compte de départ un csv avec toutes les aretes 
 
-4- 1.py : crée les fichiers comportant les comptes communs à deux graphes différents
+4- 2.py : crée un fichier pour chaque compte dans lequel on recense ses voisins dans chaque graphe
 
-5- 2.py : crée un fichier pour chaque compte dans lequel on recense ses voisins dans chaque graphe
-
-6- 3.py : pour tous les comptes dans plusieurs graphes, on rassemble tous ses voisins au sein d'un seul
-          fichier et on supprimme les fichiers dans les autres graphes pour n'avoir qu'un seul fichier au final
+5- 3.py : Pour chaque couple de graphe, on regarde les comptes communs, pour tous ces comptes, on rassemble tous ses voisins au sein d'un seul fichier et on supprimme les fichiers dans les autres graphes pour n'avoir qu'un seul fichier. On a ainsi crée le graphe adapté à la marche aléatoire. 
   

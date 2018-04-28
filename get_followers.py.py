@@ -17,9 +17,6 @@ FOLLOWING_DIR = 'following'
 MAX_FRIENDS = 100
 FRIENDS_OF_FRIENDS_LIMIT = 100
 
-if not os.path.exists(FOLLOWING_DIR):
-    os.mkdir(FOLLOWING_DIR)
-
 enc = lambda x: x.encode('ascii', errors='ignore')
 
 # The consumer keys can be found on your application's Details

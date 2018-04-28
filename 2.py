@@ -11,6 +11,8 @@ import re
 import ast
 import yaml
 
+dossier=[path]
+
 #le script cree des fichiers txt du style journal1_journal2.txt
 #dans lequel il y a tous les comptes qui appartiennent a la fois au graphe
 #du journal1 et du graphe du journal2
@@ -25,11 +27,11 @@ list_names1=['CNEWS','Europe1','FN_Officiel','Le_Figaro','lemonde','lesRepublica
 'MarianneleMag','RTLFrance']
 
 
-with open('C:/Users/remib/Documents/ENSAE/2A/Statapp/graph/idtonum.json') as outf:
+with open(dossier+'idtonum.json') as outf:
     idtonum=yaml.load(json.dumps(json.load(outf)))
     outf.close()
 
-with open('C:/Users/remib/Documents/ENSAE/2A/Statapp/graph/numtoid.json') as outf:
+with open(dossier+'numtoid.json') as outf:
     numtoid=yaml.load(json.dumps(json.load(outf)))
     outf.close()
 
@@ -43,8 +45,8 @@ def ngb_select(id):
 for j in list_names1:
     print j
     #on charge le csv contenant tous les liens du graphe
-    df=pd.read_csv('C:/Users/remib/Documents/ENSAE/2A/Statapp/graph/twitter_network/'+j+'_network.csv',names = ['A','B','C'],engine='python')
-    os.chdir('C:/Users/remib/Documents/ENSAE/2A/Statapp/graph/twitter-users/'+j)
+    df=pd.read_csv(dossier+'twitter_network/'+j+'_network.csv',names = ['A','B','C'],engine='python')
+    os.chdir(dossier+'twitter-users/'+j)
     print df.head()
     f = glob.glob('*.json')
     #on recupere toutes les noeuds lies au compte
@@ -66,11 +68,11 @@ for j in list_names1:
         ngbs = map(ngb_select, list(ngbs))
         dico = {'voisins': ngbs, 'deg' : 0 }
         try:
-            os.makedirs('C:/Users/remib/Documents/ENSAE/2A/Statapp/graph/compte_temp/'+j)
+            os.makedirs(dossier+'/compte_temp/'+j)
         except OSError as e:
             if e.errno != errno.EEXIST:
                 raise
-        with open('C:/Users/remib/Documents/ENSAE/2A/Statapp/graph/compte_temp/'+j+'/'+str(i)+'.json', 'w') as outf:
+        with open(dossier+'compte_temp/'+j+'/'+str(i)+'.json', 'w') as outf:
             json.dump(dico, outf)
             outf.close()
 print time.time() - t1

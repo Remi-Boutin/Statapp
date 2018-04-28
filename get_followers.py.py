@@ -7,36 +7,31 @@ import sys
 import json
 import argparse
 
-os.mkdir('twitter-users/')
+try :
+	os.mkdir('twitter-users/')
+except OSError as e:
+    if e.errno != errno.EEXIST:
+        raise
 
 FOLLOWING_DIR = 'following'
 MAX_FRIENDS = 100
 FRIENDS_OF_FRIENDS_LIMIT = 100
 
-#if not os.path.exists(FOLLOWING_DIR):
-#    os.mkdir(FOLLOWING_DIR)
+if not os.path.exists(FOLLOWING_DIR):
+    os.mkdir(FOLLOWING_DIR)
 
 enc = lambda x: x.encode('ascii', errors='ignore')
-"""
-# code Coraline
-CONSUMER_KEY = 'pTDqLewYuq6slS1nFr3JH3i4k'
-CONSUMER_SECRET = '5ypQ7qI8nqxFcWiX4sQVdRFKVmyGXCsfiQylg6PIiM9svg1sSz'
-ACCESS_TOKEN = '941659793156202497-dwaRIvETHpdYB1BCcYvffpNJMm3SzO5'
-ACCESS_TOKEN_SECRET = '8PHGjbIyw66OSVsFDoWlcMPgSCcNGKjlbPEwmCUKgRfqe'
 
-
-"""
-#Mes codes
 # The consumer keys can be found on your application's Details
 # page located at https://dev.twitter.com/apps (under "OAuth settings")
-CONSUMER_KEY = 'P4g3Ds5Qy3HWDKwv2spxg9ETK'
-CONSUMER_SECRET = '5KOo6bx594WnKUE5yi4chFtNYNct0PiT3aaUeUU5zP0RyKGbMs'
-
+CONSUMER_KEY = #############################
+CONSUMER_SECRET = ##########################
 # The access tokens can be found on your applications's Details
 # page located at https://dev.twitter.com/apps (located
 # under "Your access token")
-ACCESS_TOKEN = '2716851354-uO8psMpeteS7lDkKXIZlAp31Jc9pheqCOH2xjMM'
-ACCESS_TOKEN_SECRET = 'QvQ5yT0Iq5SISAiFk8G2cJTsHHqoVknnLLizOdgEBSqqE'
+ACCESS_TOKEN = ##############################
+ACCESS_TOKEN_SECRET = ########################
+
 
 # == OAuth Authentication ==
 #
@@ -110,39 +105,6 @@ def get_follower_ids(centre, max_depth=1, current_depth=0, taboo_list=[]):
         screen_name = enc(user['screen_name'])
         #fname = os.path.join(FOLLOWING_DIR, screen_name + '.csv')
         friendids = []
-
-        # only retrieve friends of TED... screen names
-        """if not os.path.exists(fname):
-            print 'No cached data for screen name "%s"' % screen_name
-            with open(fname, 'w') as outf:
-                params = (enc(user['name']), screen_name)
-                print 'Retrieving friends for user "%s" (%s)' % params
-
-                # page over friends
-                c = tweepy.Cursor(api.friends, id=user['id']).items()
-
-                friend_count = 0
-                while True:
-                    try:
-                        friend = c.next()
-                        friendids.append(friend.id)
-                        params = (friend.id, enc(friend.screen_name), enc(friend.name))
-                        outf.write('%s\t%s\t%s\n' % params)
-                        friend_count += 1
-                        if friend_count >= MAX_FRIENDS:
-                            print 'Reached max no. of friends for "%s".' % friend.screen_name
-                            break
-                    except tweepy.TweepError:
-                        # hit rate limit, sleep for 15 minutes
-                        print 'Rate limited. Sleeping for 15 minutes.'
-                        time.sleep(15 * 60 + 15)
-                        continue
-                    except StopIteration:
-                        break
-        else:
-            friendids = [int(line.strip().split('\t')[0]) for line in file(fname)]
-
-        print 'Found %d friends for %s' % (len(friendids), screen_name)"""
 
         friendids=d['followers_ids']
         # get friends of friends

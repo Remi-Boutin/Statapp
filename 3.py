@@ -13,6 +13,7 @@ import yaml
 #dans lequel il y a tous les comptes qui appartiennent a la fois au graphe
 #du journal1 et du graphe du journal2
 t1= time.time()
+dossier=[path]
 
 list_names=['CNEWS','Europe1','FN_Officiel','Le_Figaro','lemonde','lesRepublicains','partisocialiste',
 'BFMTV','Challenges','EnMarchefr','FranceInsoumise','LesEchos',
@@ -25,22 +26,22 @@ list_names1=['CNEWS','Europe1','FN_Officiel','Le_Figaro','lemonde','lesRepublica
 list_temp=list(list_names1)
 
 try:
-    os.makedirs('C:/Users/remib/Documents/ENSAE/2A/Statapp/graph/compte_temp/commun')
+    os.makedirs(dossier+'compte_temp/commun')
 except OSError as e:
     if e.errno != errno.EEXIST:
         raise
 
 for k in list_names1:
-    os.chdir('C:/Users/remib/Documents/ENSAE/2A/Statapp/graph/compte_temp/'+k)
+    os.chdir(dossier+'compte_temp/'+k)
     f = glob.glob('*.json')
     np1= np.array(map(lambda i: i[0:-5],f))
     list_temp.remove(k)
     for j in list_temp:
-        os.chdir('C:/Users/remib/Documents/ENSAE/2A/Statapp/graph/compte_temp/'+j)
+        os.chdir(dossier+'/compte_temp/'+j)
         h = glob.glob('*.json')
         np2= np.array(map(lambda i: i[0:-5],h))
         commun={'commun':list(np.intersect1d(np1,np2,assume_unique=True))}
-        os.chdir('C:/Users/remib/Documents/ENSAE/2A/Statapp/graph/compte_temp/commun/')
+        os.chdir(dossier+'compte_temp/commun/')
         with open(j+'_'+k+'.json','w') as outf:
             json.dump(commun,outf)
             outf.close()
@@ -53,13 +54,13 @@ count = 0
 for k in list_names1:
     list_temp.remove(k)
     for j in list_temp:
-        os.chdir('C:/Users/remib/Documents/ENSAE/2A/Statapp/graph/compte_temp/')
+        os.chdir(dossier+'/compte_temp/')
         with open('commun/'+j+'_'+k+'.json', 'r') as outf:
             file=list(json.load(outf)['commun'])
             outf.close()
         for v in file:
-            os.chdir('C:/Users/remib/Documents/ENSAE/2A/Statapp/graph/compte_temp/')
-            if os.path.exists('C:/Users/remib/Documents/ENSAE/2A/Statapp/graph/compte_temp/'+j+'/'+v+'.json') & os.path.exists('C:/Users/remib/Documents/ENSAE/2A/Statapp/graph/compte_temp/'+k+'/'+v+'.json'):
+            os.chdir(dossier+'compte_temp/')
+            if os.path.exists(dossier+'compte_temp/'+j+'/'+v+'.json') & os.path.exists('C:/Users/remib/Documents/ENSAE/2A/Statapp/graph/compte_temp/'+k+'/'+v+'.json'):
                 with open(j+'/'+v+'.json','r') as cible:
                     voisins=json.load(cible)["voisins"] #on charge ses voisins dans le graphe de j
                     cible.close()
@@ -73,7 +74,7 @@ for k in list_names1:
                     json.dump(data,outf)
                     outf.close()
 
-                os.remove('C:/Users/remib/Documents/ENSAE/2A/Statapp/graph/compte_temp/'+j+'/'+v+'.json')
+                os.remove(dossier+'compte_temp/'+j+'/'+v+'.json')
 
 
 

@@ -45,6 +45,9 @@ for k in list_names1:
             json.dump(commun,outf)
             outf.close()
 
+            
+#Pour tous les comptes dans plusieurs graphes, on rassemble tous ses voisins dans un seul fichier et on supprimme les autres fichiers
+#On obtient le graphe unifie a la fin
 list_temp=list(list_names1)
 count = 0
 for k in list_names1:

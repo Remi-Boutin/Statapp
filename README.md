@@ -2,7 +2,7 @@
 ## Analyse statistique d'un réseau créé à partir de données Twitter.
 
 Le but de cette étude est de découvrir quels sont les comptes Twitter  << importants >> (sens à définir) dans la transmission de l'information politique, principalement française. 
-Ces scripts s'inspirent des pages de Mark Kay: http://mark-kay.net/2014/08/15/network-graph-of-twitter-followers/. Ce github ne contient que la partie permettant de créer le graphe en utilisant l'API de Twitter. L'analyse à l'aide de marche aléatoire a été faite sous R et n'est pas présente dans ce github. 
+La partie << scrapping >> s'inspirent des pages de Mark Kay: http://mark-kay.net/2014/08/15/network-graph-of-twitter-followers/.  L'analyse statistique à l'aide d'une marche aléatoire a été faite sous R. 
 
 * 1ère étape: récupérer les données twitter grace au script de M.Kay adapté
 * 2ème étape: Construction du graphe adapté à la marche aléatoire:

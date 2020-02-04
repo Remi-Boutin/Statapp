@@ -1,7 +1,7 @@
 # Statapp
-Analyse statistique d'un réseau créé à partir de données Twitter.
+## Analyse statistique d'un réseau créé à partir de données Twitter.
 
-Le but de cette étude est de découvrir quels sont les comptes Twitter "important" (sens à définir) dans la transmission de l'information politique, principalement française. 
+Le but de cette étude est de découvrir quels sont les comptes Twitter  << importants >> (sens à définir) dans la transmission de l'information politique, principalement française. 
 Ces scripts s'inspirent des pages de Mark Kay: http://mark-kay.net/2014/08/15/network-graph-of-twitter-followers/
 
 * 1ère étape: récupérer les données twitter grace au script de M.Kay adapté

@@ -1,7 +1,8 @@
 # Statapp
-Statistical network analysis
+Analyse statistique d'un réseau créé à partir de données Twitter.
 
-Ces scripts ont été largement inspirés par les pages de Mark Kay: http://mark-kay.net/2014/08/15/network-graph-of-twitter-followers/
+Le but de cette étude est de découvrir quels sont les comptes Twitter "important" (sens à définir) dans la transmission de l'information politique, principalement française. 
+Ces scripts s'inspirent des pages de Mark Kay: http://mark-kay.net/2014/08/15/network-graph-of-twitter-followers/
 
 * 1ère étape: récupérer les données twitter grace au script de M.Kay adapté
 * 2ème étape: Construction du graphe adapté à la marche aléatoire:
